@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import React from 'react';
 
+// useState('hello');
+
 const UseStateBasics = () => {
   // console.log(useState());
   // console.log(useState('bob'));
@@ -19,6 +21,7 @@ const UseStateBasics = () => {
 
   const handClick = () => {
     setCount(count + 1);
+    console.log(count);
     // setCount('pants');
   };
 
