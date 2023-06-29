@@ -8,25 +8,26 @@ const MultipleReturnsFetchData = () => {
 
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const resp = await fetch(url);
-        // console.log(resp);
-        if (!resp.ok) {
-          setIsError(true);
-          setIsLoading(false);
-          return;
-        }
-        const user = await resp.json();
-        // console.log(user);
-        setUser(user);
-      } catch (error) {
+  const fetchUser = async () => {
+    try {
+      const resp = await fetch(url);
+      // console.log(resp);
+      if (!resp.ok) {
         setIsError(true);
-        console.log(error);
+        setIsLoading(false);
+        return;
       }
-      setIsLoading(false);
-    };
+      const user = await resp.json();
+      // console.log(user);
+      setUser(user);
+    } catch (error) {
+      setIsError(true);
+      console.log(error);
+    }
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
     fetchUser();
   }, []);
 
