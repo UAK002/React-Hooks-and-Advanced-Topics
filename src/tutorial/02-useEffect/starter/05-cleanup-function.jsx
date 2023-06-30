@@ -4,6 +4,8 @@ import { useState } from 'react';
 const CleanupFunction = () => {
   const [toggle, setToggle] = useState(false);
 
+  console.log('render');
+
   return (
     <div>
       <button
@@ -21,7 +23,15 @@ const CleanupFunction = () => {
 
 const RandomComponent = () => {
   useEffect(() => {
-    console.log('this is interesting');
+    // console.log('this is interesting');
+
+    const intId = setInterval(() => {
+      // console.log('hello from Interval');
+    }, 1000);
+    return () => {
+      clearInterval(intId);
+      console.log('cleanup');
+    };
   }, []);
   return <h1>hello there</h1>;
 };
