@@ -1,4 +1,4 @@
-import Starter from './tutorial/06-forms/starter/02-user-challenge.jsx';
+import Starter from './tutorial/06-forms/starter/03-multiple-inputs.jsx';
 
 function App() {
   return (
