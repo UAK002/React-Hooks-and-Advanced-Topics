@@ -1,9 +1,14 @@
 import { useState, createContext } from 'react';
 import NavlLinks from './NavlLinks';
+import { useContext } from 'react';
 
 export const NavbarContext = createContext();
-console.log(NavbarContext);
-console.log(NavbarContext.Provider);
+// console.log(NavbarContext);
+// console.log(NavbarContext.Provider);
+
+// custom Hook
+
+export const useAppContext = () => useContext(NavbarContext);
 
 const Navbar = () => {
   const [user, setUser] = useState({ name: 'bob' });
