@@ -2,13 +2,20 @@ import React from 'react';
 import { data } from '../../../data';
 import { useReducer } from 'react';
 
+const defaultState = {
+  people: data,
+  isLoading: false,
+};
+
+const reducer = (state, action) => {
+  // console.log(action);
+  // return 'ShakeAndBake';
+  if (action.type === 'CLEAR_LIST') {
+    return { ...state, people: [] };
+  }
+};
+
 const ReducerBasics = () => {
-  const defaultState = {
-    people: data,
-  };
-
-  const reducer = () => {};
-
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   // const [people, setPeople] = React.useState(data);
@@ -19,6 +26,7 @@ const ReducerBasics = () => {
   };
 
   const clearList = () => {
+    dispatch({ type: 'CLEAR_LIST' });
     // setPeople([]);
   };
   const resetList = () => {
