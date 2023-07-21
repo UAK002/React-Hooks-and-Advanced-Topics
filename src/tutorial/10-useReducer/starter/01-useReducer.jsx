@@ -12,11 +12,12 @@ const REMOVE_LIST = 'REMOVE_LIST';
 const REMOVE_ITEM = 'REMOVE_ITEM';
 
 const reducer = (state, action) => {
-  // if (action.type === 'CLEAR_LIST') {
   if (action.type === CLEAR_LIST) {
     return { ...state, people: [] };
   }
-  // return state;
+  if (action.type === REMOVE_ITEM) {
+    return { ...state, people: data };
+  }
   throw new Error(`No matching "${action.type}" - action type`);
 };
 
@@ -29,12 +30,10 @@ const ReducerBasics = () => {
   };
 
   const clearList = () => {
-    // dispatch({ type: 'CLEAR_LIST' });
     dispatch({ type: CLEAR_LIST });
   };
   const resetList = () => {
-    dispatch({ type: 'random stuff' });
-    // setPeople(data);
+    dispatch({ type: REMOVE_ITEM });
   };
 
   console.log(state);
