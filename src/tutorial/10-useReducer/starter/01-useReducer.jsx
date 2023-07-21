@@ -7,18 +7,21 @@ const defaultState = {
   isLoading: false,
 };
 
+const CLEAR_LIST = 'CLEAR_LIST';
+const REMOVE_LIST = 'REMOVE_LIST';
+const REMOVE_ITEM = 'REMOVE_ITEM';
+
 const reducer = (state, action) => {
-  // console.log(action);
-  // return 'ShakeAndBake';
-  if (action.type === 'CLEAR_LIST') {
+  // if (action.type === 'CLEAR_LIST') {
+  if (action.type === CLEAR_LIST) {
     return { ...state, people: [] };
   }
+  // return state;
+  throw new Error(`No matching "${action.type}" - action type`);
 };
 
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-
-  // const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
     // let newPeople = people.filter((person) => person.id !== id);
@@ -26,10 +29,11 @@ const ReducerBasics = () => {
   };
 
   const clearList = () => {
-    dispatch({ type: 'CLEAR_LIST' });
-    // setPeople([]);
+    // dispatch({ type: 'CLEAR_LIST' });
+    dispatch({ type: CLEAR_LIST });
   };
   const resetList = () => {
+    dispatch({ type: 'random stuff' });
     // setPeople(data);
   };
 
@@ -52,7 +56,7 @@ const ReducerBasics = () => {
         <button
           className="btn"
           style={{ marginTop: '2rem' }}
-          onClick={removeItem}
+          onClick={resetList}
         >
           reset
         </button>
